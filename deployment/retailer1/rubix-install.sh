@@ -17,6 +17,7 @@ set. Please set this environment variable and try again."
  fi;
 }
 
+accountId="DEVACCOUNT"
 require_environment_variable ${accountId}
 
 echo "checkaccountId=${!accountId}"
