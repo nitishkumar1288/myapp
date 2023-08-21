@@ -38,5 +38,6 @@ jobs:
        echo "Value of secret: ${{ secrets.DEV_API_HOST }}"
        chmod +x  ./deployment/retailer1/rubix-install.sh
        ./deployment/retailer1/rubix-install.sh
+       
       # shell: bash
    
