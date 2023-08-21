@@ -34,7 +34,11 @@ jobs:
       run: |
        chmod +x  ./deployment/retailer1/rubix-install.sh
        ./deployment/retailer1/rubix-install.sh
-      shell: bash
+      # shell: bash
+    - name: use secret variable  
       env:
         ENVIRONMENT_VARIABLE_NAME: ${{ secrets.DEV_API_HOST }}
         GITHUB_TOKEN: ${{ github.token }}
+      run: |
+          echo "Using secret in a command"
+          echo "Value of secret: $ENVIRONMENT_VARIABLE_NAME"
