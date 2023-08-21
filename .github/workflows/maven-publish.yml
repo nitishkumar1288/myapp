@@ -31,7 +31,8 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
-      run: deployment/retailer1/rubix-install.sh
+      run: |
+        chmod +x ./deployment/retailer1/rubix-install.sh
       shell: bash
       env:
         GITHUB_TOKEN: ${{ github.token }}
