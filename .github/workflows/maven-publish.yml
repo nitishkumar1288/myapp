@@ -37,5 +37,4 @@ jobs:
       shell: bash
       env:
         ENVIRONMENT_VARIABLE_NAME: ${{ secrets.DEV_API_HOST }}
-         echo $ENVIRONMENT_VARIABLE_NAME
         GITHUB_TOKEN: ${{ github.token }}
