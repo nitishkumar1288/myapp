@@ -36,4 +36,5 @@ jobs:
        ./deployment/retailer1/rubix-install.sh
       shell: bash
       env:
+        ENVIRONMENT_VARIABLE_NAME: ${{ secrets.DEV_API_HOST }}
         GITHUB_TOKEN: ${{ github.token }}
