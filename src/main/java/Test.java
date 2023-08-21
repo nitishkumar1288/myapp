@@ -3,5 +3,6 @@ public class Test {
         System.out.print("Om");
         System.out.print("Namah");
         System.out.print("Shivay");
+        
     }
 }
