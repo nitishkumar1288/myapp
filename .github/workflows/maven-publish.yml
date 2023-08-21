@@ -35,7 +35,7 @@ jobs:
         ENVIRONMENT_VARIABLE_NAME: ${{ secrets.DEV_API_HOST }}
         GITHUB_TOKEN: ${{ github.token }}
       run: |
-       echo "Value of secret: ${{DEV_ACCOUNT}}"
+       echo "Value of secret: ${{ DEV_ACCOUNT }}"
        chmod +x  ./deployment/retailer1/rubix-install.sh
        ./deployment/retailer1/rubix-install.sh
        
