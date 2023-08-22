@@ -3,6 +3,10 @@
 
 name: Maven Package
 
+cache:
+  paths:
+    - .m2/repository
+
 on:
   push:
     branches: [main]
@@ -19,10 +23,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up JDK 11
+    - name: Set up JDK 1.8
       uses: actions/setup-java@v3
       with:
-        java-version: '11'
+        java-version: '1.8'
         distribution: 'temurin'
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
@@ -31,13 +35,10 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
-      env:
-        ENVIRONMENT_VARIABLE_NAME: ${{ secrets.DEV_API_HOST }}
-        GITHUB_TOKEN: ${{ github.token }}
       run: |
-       echo "Value of secret: ${{ secrets.DEV_API_HOST }}"
        chmod +x  ./deployment/retailer1/rubix-install.sh
        ./deployment/retailer1/rubix-install.sh
-       
-      # shell: bash
-   
+      env:
+        API_HOST: ${{ secrets.DEV_API_HOST }}
+        DEV_ACCOUNT: ${{ vars.DEV_ACCOUNT }}
+        GITHUB_TOKEN: ${{ github.token }}
